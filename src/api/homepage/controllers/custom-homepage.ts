@@ -124,7 +124,11 @@ export default {
                         populate: {
                             addressCard: true,
                             cta: true,
-                            socialLinks: true,
+                            socialLinks: {
+                                populate: {
+                                    icon: true,
+                                },
+                            },
                         },
                     },
 
