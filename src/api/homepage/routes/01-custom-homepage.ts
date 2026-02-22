@@ -5,7 +5,6 @@ export default {
             path: '/homepage',
             handler: 'custom-homepage.getHomepage',
             config: {
-                auth: false,
                 policies: [],
                 middlewares: [],
             },
