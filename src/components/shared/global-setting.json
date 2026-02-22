@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_shared_global_settings",
+  "info": {
+    "displayName": "global-setting"
+  },
+  "options": {},
+  "attributes": {
+    "applicationName": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "favicon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.cta",
+      "repeatable": false
+    },
+    "navItems": {
+      "type": "component",
+      "component": "shared.navigation-item",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

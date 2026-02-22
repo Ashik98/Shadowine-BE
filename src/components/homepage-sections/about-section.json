@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_homepage_sections_about_sections",
+  "info": {
+    "displayName": "about-section"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "titleHighlightedText": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "avatarImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

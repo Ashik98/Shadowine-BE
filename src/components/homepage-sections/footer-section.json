@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_homepage_sections_footer_sections",
+  "info": {
+    "displayName": "footer-section"
+  },
+  "options": {},
+  "attributes": {
+    "copyrightYear": {
+      "type": "string"
+    },
+    "copyrightText": {
+      "type": "string"
+    },
+    "links": {
+      "type": "component",
+      "component": "shared.links",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

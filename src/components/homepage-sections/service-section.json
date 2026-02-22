@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_homepage_sections_service_sections",
+  "info": {
+    "displayName": "service-section"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "titleHighlightedWords": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "cards": {
+      "type": "component",
+      "component": "homepage-sections.service-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_homepage_sections_contact_sections",
+  "info": {
+    "displayName": "contact-section"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "titlehighlightedWords": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "addressCard": {
+      "type": "component",
+      "component": "homepage-sections.address-card",
+      "repeatable": false
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.cta",
+      "repeatable": false
+    },
+    "socialLinks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::social-media.social-media"
+    }
+  },
+  "config": {}
+}

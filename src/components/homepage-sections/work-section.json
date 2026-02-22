@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_homepage_sections_work_sections",
+  "info": {
+    "displayName": "work-section"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "titleHighlightedWords": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "HighlightedSentence": {
+      "type": "string"
+    },
+    "workCards": {
+      "type": "component",
+      "component": "homepage-sections.work-view-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

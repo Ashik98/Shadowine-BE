@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_homepage_sections_address_cards",
+  "info": {
+    "displayName": "address-card"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "addressLine1": {
+      "type": "string"
+    },
+    "addressLine2": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

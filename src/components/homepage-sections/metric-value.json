@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_homepage_sections_metric_values",
+  "info": {
+    "displayName": "metric-value"
+  },
+  "options": {},
+  "attributes": {
+    "valueSuffix": {
+      "type": "string"
+    },
+    "valuePrefix": {
+      "type": "string"
+    },
+    "tagline": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
