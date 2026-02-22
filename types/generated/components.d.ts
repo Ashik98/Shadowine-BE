@@ -218,6 +218,45 @@ export interface SharedNavigationItem extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedOpenGraph extends Struct.ComponentSchema {
+  collectionName: 'components_shared_open_graphs';
+  info: {
+    displayName: 'openGraph';
+  };
+  attributes: {
+    ogDescription: Schema.Attribute.Text;
+    ogImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    ogSiteName: Schema.Attribute.String;
+    ogTitle: Schema.Attribute.String;
+    ogType: Schema.Attribute.Enumeration<
+      ['website', 'article', 'product', 'video ', 'book']
+    >;
+    ogUrl: Schema.Attribute.String;
+  };
+}
+
+export interface SharedSeo extends Struct.ComponentSchema {
+  collectionName: 'components_shared_seos';
+  info: {
+    displayName: 'seo';
+  };
+  attributes: {
+    canonicalUrl: Schema.Attribute.Text;
+    keywords: Schema.Attribute.Text;
+    metaDescription: Schema.Attribute.Text;
+    metaRobots: Schema.Attribute.Enumeration<
+      [
+        'index, follow',
+        'noindex, follow',
+        'index, nofollow',
+        'noindex, nofollow',
+      ]
+    >;
+    metaTitle: Schema.Attribute.String;
+    structuredData: Schema.Attribute.JSON;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -236,6 +275,8 @@ declare module '@strapi/strapi' {
       'shared.global-setting': SharedGlobalSetting;
       'shared.links': SharedLinks;
       'shared.navigation-item': SharedNavigationItem;
+      'shared.open-graph': SharedOpenGraph;
+      'shared.seo': SharedSeo;
     }
   }
 }

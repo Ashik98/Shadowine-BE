@@ -50,6 +50,11 @@
       "type": "component",
       "component": "homepage-sections.footer-section",
       "repeatable": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
     }
   }
 }

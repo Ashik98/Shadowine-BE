@@ -503,6 +503,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
       true
     >;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     services: Schema.Attribute.Component<
       'homepage-sections.service-section',
       false
