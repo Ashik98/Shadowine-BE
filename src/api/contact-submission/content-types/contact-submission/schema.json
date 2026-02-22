@@ -31,6 +31,18 @@
     },
     "source": {
       "type": "string"
+    },
+    "contactStatus": {
+      "type": "enumeration",
+      "enum": [
+        "new",
+        "in-progress",
+        "resolved"
+      ],
+      "default": "new"
+    },
+    "userAgent": {
+      "type": "string"
     }
   }
 }

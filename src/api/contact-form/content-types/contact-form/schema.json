@@ -1,0 +1,22 @@
+{
+    "kind": "collectionType",
+    "collectionName": "contact_forms",
+    "info": {
+        "singularName": "contact-form",
+        "pluralName": "contact-forms",
+        "displayName": "Contact Form",
+        "description": "API-only collection for the send-email endpoint. Data is stored in contact-submission."
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {
+        "content-manager": {
+            "visible": false
+        },
+        "content-type-builder": {
+            "visible": false
+        }
+    },
+    "attributes": {}
+}

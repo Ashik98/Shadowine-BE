@@ -467,6 +467,42 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiContactFormContactForm extends Struct.CollectionTypeSchema {
+  collectionName: 'contact_forms';
+  info: {
+    description: 'API-only collection for the send-email endpoint. Data is stored in contact-submission.';
+    displayName: 'Contact Form';
+    pluralName: 'contact-forms';
+    singularName: 'contact-form';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact-form.contact-form'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiContactSubmissionContactSubmission
   extends Struct.CollectionTypeSchema {
   collectionName: 'contact_submissions';
@@ -479,6 +515,10 @@ export interface ApiContactSubmissionContactSubmission
     draftAndPublish: true;
   };
   attributes: {
+    contactStatus: Schema.Attribute.Enumeration<
+      ['new', 'in-progress', 'resolved']
+    > &
+      Schema.Attribute.DefaultTo<'new'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -499,6 +539,7 @@ export interface ApiContactSubmissionContactSubmission
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    userAgent: Schema.Attribute.String;
   };
 }
 
@@ -1159,6 +1200,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::contact-form.contact-form': ApiContactFormContactForm;
       'api::contact-submission.contact-submission': ApiContactSubmissionContactSubmission;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::social-media.social-media': ApiSocialMediaSocialMedia;
