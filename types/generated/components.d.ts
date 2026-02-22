@@ -107,6 +107,19 @@ export interface HomepageSectionsMetricValue extends Struct.ComponentSchema {
   };
 }
 
+export interface HomepageSectionsPrivateViewCard
+  extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_sections_private_view_cards';
+  info: {
+    displayName: 'private-view-card';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'shared.cta', false>;
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface HomepageSectionsServiceCard extends Struct.ComponentSchema {
   collectionName: 'components_homepage_sections_service_cards';
   info: {
@@ -133,6 +146,16 @@ export interface HomepageSectionsServiceSection extends Struct.ComponentSchema {
   };
 }
 
+export interface HomepageSectionsStatsSection extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_sections_stats_sections';
+  info: {
+    displayName: 'stats-section';
+  };
+  attributes: {
+    stats: Schema.Attribute.Component<'homepage-sections.metric-value', true>;
+  };
+}
+
 export interface HomepageSectionsWorkSection extends Struct.ComponentSchema {
   collectionName: 'components_homepage_sections_work_sections';
   info: {
@@ -142,12 +165,13 @@ export interface HomepageSectionsWorkSection extends Struct.ComponentSchema {
     description: Schema.Attribute.Text;
     eyebrow: Schema.Attribute.String;
     HighlightedSentence: Schema.Attribute.String;
+    privateView: Schema.Attribute.Component<
+      'homepage-sections.private-view-card',
+      false
+    >;
     title: Schema.Attribute.String;
     titleHighlightedWords: Schema.Attribute.String;
-    workCards: Schema.Attribute.Component<
-      'homepage-sections.work-view-card',
-      true
-    >;
+    works: Schema.Attribute.Relation<'oneToMany', 'api::work.work'>;
   };
 }
 
@@ -253,6 +277,7 @@ export interface SharedSeo extends Struct.ComponentSchema {
       ]
     >;
     metaTitle: Schema.Attribute.String;
+    openGraph: Schema.Attribute.Component<'shared.open-graph', false>;
     structuredData: Schema.Attribute.JSON;
   };
 }
@@ -267,8 +292,10 @@ declare module '@strapi/strapi' {
       'homepage-sections.hero-section': HomepageSectionsHeroSection;
       'homepage-sections.marquee-item': HomepageSectionsMarqueeItem;
       'homepage-sections.metric-value': HomepageSectionsMetricValue;
+      'homepage-sections.private-view-card': HomepageSectionsPrivateViewCard;
       'homepage-sections.service-card': HomepageSectionsServiceCard;
       'homepage-sections.service-section': HomepageSectionsServiceSection;
+      'homepage-sections.stats-section': HomepageSectionsStatsSection;
       'homepage-sections.work-section': HomepageSectionsWorkSection;
       'homepage-sections.work-view-card': HomepageSectionsWorkViewCard;
       'shared.cta': SharedCta;

@@ -28,6 +28,11 @@
     },
     "structuredData": {
       "type": "json"
+    },
+    "openGraph": {
+      "type": "component",
+      "component": "shared.open-graph",
+      "repeatable": false
     }
   },
   "config": {}

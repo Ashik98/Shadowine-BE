@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_homepage_sections_private_view_cards",
+  "info": {
+    "displayName": "private-view-card"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.cta",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

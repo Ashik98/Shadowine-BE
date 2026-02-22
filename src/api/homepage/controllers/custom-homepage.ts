@@ -1,11 +1,60 @@
 import { Context } from 'koa';
 
+// Fields to strip from every object in the response
+const STRIP_FIELDS = new Set([
+    'id',
+    'documentId',
+    'createdAt',
+    'updatedAt',
+    'publishedAt',
+    'createdBy',
+    'updatedBy',
+    'locale',
+    'localizations',
+]);
+
+// Identifies a Strapi media/upload object
+function isMediaObject(obj: any): boolean {
+    return obj && typeof obj === 'object' && 'url' in obj && 'mime' in obj;
+}
+
+// Transform media → only url + alternativeText
+function transformMedia(media: any): any {
+    if (!media) return null;
+    return {
+        url: media.url ?? null,
+        alternativeText: media.alternativeText ?? null,
+    };
+}
+
+// Recursively clean the raw DB response
+function clean(value: any): any {
+    if (value === null || value === undefined) return value;
+    if (typeof value !== 'object') return value;
+
+    if (Array.isArray(value)) {
+        return value.map(clean);
+    }
+
+    if (isMediaObject(value)) {
+        return transformMedia(value);
+    }
+
+    const result: Record<string, any> = {};
+    for (const [key, val] of Object.entries(value)) {
+        if (STRIP_FIELDS.has(key)) continue;
+        result[key] = clean(val);
+    }
+    return result;
+}
+
 export default {
     async getHomepage(ctx: Context) {
         try {
             const homepage = await strapi.db.query('api::homepage.homepage').findOne({
                 where: { publishedAt: { $notNull: true } },
                 populate: {
+                    // ── Global Settings ───────────────────────────────────
                     globalSettings: {
                         populate: {
                             logo: true,
@@ -14,6 +63,8 @@ export default {
                             navItems: true,
                         },
                     },
+
+                    // ── Hero Section ──────────────────────────────────────
                     hero: {
                         populate: {
                             cta: true,
@@ -21,11 +72,15 @@ export default {
                             showReelThumbnail: true,
                         },
                     },
+
+                    // ── Marquee Items ─────────────────────────────────────
                     marqueeItems: {
                         populate: {
                             logo: true,
                         },
                     },
+
+                    // ── Services Section ──────────────────────────────────
                     services: {
                         populate: {
                             cards: {
@@ -35,21 +90,36 @@ export default {
                             },
                         },
                     },
+
+                    // ── Works Section ─────────────────────────────────────
                     works: {
                         populate: {
-                            workCards: {
+                            works: {
+                                populate: true,
+                            },
+                            privateView: {
                                 populate: {
-                                    thumbnail: true,
-                                    video: true,
+                                    cta: true,
                                 },
                             },
                         },
                     },
+
+                    // ── About Section ─────────────────────────────────────
                     about: {
                         populate: {
                             avatarImage: true,
                         },
                     },
+
+                    // ── Stats Section ─────────────────────────────────────
+                    stats: {
+                        populate: {
+                            stats: true,
+                        },
+                    },
+
+                    // ── Contact Section ───────────────────────────────────
                     contact: {
                         populate: {
                             addressCard: true,
@@ -57,11 +127,15 @@ export default {
                             socialLinks: true,
                         },
                     },
+
+                    // ── Footer Section ────────────────────────────────────
                     footer: {
                         populate: {
                             links: true,
                         },
                     },
+
+                    // ── SEO ───────────────────────────────────────────────
                     seo: {
                         populate: {
                             openGraph: {
@@ -79,11 +153,13 @@ export default {
             }
 
             ctx.body = {
-                data: homepage,
+                data: clean(homepage),
             };
-        } catch (error) {
-            strapi.log.error('Error fetching homepage:', error);
-            ctx.internalServerError('An error occurred while fetching the homepage data');
+        } catch (error: any) {
+            strapi.log.error('[custom-homepage] Error fetching homepage data:');
+            strapi.log.error(error?.message || error);
+            strapi.log.error(error?.stack || '');
+            ctx.internalServerError(error?.message || 'An error occurred while fetching the homepage data');
         }
     },
 };

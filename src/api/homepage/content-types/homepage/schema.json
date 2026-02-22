@@ -41,6 +41,11 @@
       "component": "homepage-sections.about-section",
       "repeatable": false
     },
+    "stats": {
+      "type": "component",
+      "component": "homepage-sections.stats-section",
+      "repeatable": false
+    },
     "contact": {
       "type": "component",
       "component": "homepage-sections.contact-section",

@@ -20,10 +20,15 @@
     "HighlightedSentence": {
       "type": "string"
     },
-    "workCards": {
+    "works": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::work.work"
+    },
+    "privateView": {
       "type": "component",
-      "component": "homepage-sections.work-view-card",
-      "repeatable": true
+      "component": "homepage-sections.private-view-card",
+      "repeatable": false
     }
   },
   "config": {}

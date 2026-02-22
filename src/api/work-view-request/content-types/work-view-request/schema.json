@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "work_view_requests",
+  "info": {
+    "singularName": "work-view-request",
+    "pluralName": "work-view-requests",
+    "displayName": "work-view-request"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "message": {
+      "type": "text"
+    },
+    "workName": {
+      "type": "string"
+    },
+    "ipAddress": {
+      "type": "string"
+    }
+  }
+}

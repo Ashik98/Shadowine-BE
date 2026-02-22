@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_homepage_sections_stats_sections",
+  "info": {
+    "displayName": "stats-section"
+  },
+  "options": {},
+  "attributes": {
+    "stats": {
+      "type": "component",
+      "component": "homepage-sections.metric-value",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
