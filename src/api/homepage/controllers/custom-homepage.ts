@@ -119,6 +119,17 @@ export default {
                         },
                     },
 
+                    // ── Testimonials Section ───────────────────────────────
+                    testimonials: {
+                        populate: {
+                            testimonials: {
+                                populate: {
+                                    avatar: true,
+                                },
+                            },
+                        },
+                    },
+
                     // ── Contact Section ───────────────────────────────────
                     contact: {
                         populate: {

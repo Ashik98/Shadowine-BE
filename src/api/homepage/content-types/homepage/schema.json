@@ -46,6 +46,11 @@
       "component": "homepage-sections.stats-section",
       "repeatable": false
     },
+    "testimonials": {
+      "type": "component",
+      "component": "homepage-sections.testimonial-section",
+      "repeatable": false
+    },
     "contact": {
       "type": "component",
       "component": "homepage-sections.contact-section",

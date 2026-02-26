@@ -156,6 +156,24 @@ export interface HomepageSectionsStatsSection extends Struct.ComponentSchema {
   };
 }
 
+export interface HomepageSectionsTestimonialSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_sections_testimonial_sections';
+  info: {
+    displayName: 'testimonial-section';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    eyebrow: Schema.Attribute.String;
+    testimonials: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testimonial.testimonial'
+    >;
+    title: Schema.Attribute.String;
+    titleHighlightedWords: Schema.Attribute.String;
+  };
+}
+
 export interface HomepageSectionsWorkSection extends Struct.ComponentSchema {
   collectionName: 'components_homepage_sections_work_sections';
   info: {
@@ -296,6 +314,7 @@ declare module '@strapi/strapi' {
       'homepage-sections.service-card': HomepageSectionsServiceCard;
       'homepage-sections.service-section': HomepageSectionsServiceSection;
       'homepage-sections.stats-section': HomepageSectionsStatsSection;
+      'homepage-sections.testimonial-section': HomepageSectionsTestimonialSection;
       'homepage-sections.work-section': HomepageSectionsWorkSection;
       'homepage-sections.work-view-card': HomepageSectionsWorkViewCard;
       'shared.cta': SharedCta;
