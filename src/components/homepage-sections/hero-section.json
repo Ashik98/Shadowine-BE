@@ -19,6 +19,16 @@
       "component": "shared.cta",
       "repeatable": false
     },
+    "previewReel": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
     "showReelVideo": {
       "type": "media",
       "multiple": false,
@@ -28,9 +38,9 @@
         "videos"
       ]
     },
-    "showReelThumbnail": {
+    "previewImage": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "allowedTypes": [
         "images",
         "files",

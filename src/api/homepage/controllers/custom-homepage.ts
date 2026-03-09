@@ -69,7 +69,8 @@ export default {
                         populate: {
                             cta: true,
                             showReelVideo: true,
-                            showReelThumbnail: true,
+                            previewReel: true,
+                            previewImage: true,
                         },
                     },
 

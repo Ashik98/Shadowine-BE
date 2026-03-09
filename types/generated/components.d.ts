@@ -75,9 +75,11 @@ export interface HomepageSectionsHeroSection extends Struct.ComponentSchema {
     description: Schema.Attribute.Text;
     heading: Schema.Attribute.String;
     headingHighlightedWords: Schema.Attribute.String;
-    showReelThumbnail: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
+    previewImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    previewReel: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
     >;
     showReelVideo: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
   };
