@@ -720,6 +720,7 @@ export interface ApiWorkWork extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     video: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    videoUrl: Schema.Attribute.String;
     year: Schema.Attribute.String;
   };
 }

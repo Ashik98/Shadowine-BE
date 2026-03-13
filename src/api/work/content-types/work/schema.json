@@ -31,6 +31,9 @@
         "audios"
       ]
     },
+    "videoUrl": {
+      "type": "string"
+    },
     "video": {
       "type": "media",
       "multiple": false,
